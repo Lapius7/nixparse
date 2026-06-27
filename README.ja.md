@@ -1,6 +1,10 @@
 # nixparse
 
+[![npm version](https://img.shields.io/npm/v/nixparse.svg)](https://www.npmjs.com/package/nixparse)
+
 `ps`, `df`, `du`, `free`, `lsof`, `mount`, `who`, `uptime`, `ip`, `ss` といった古典的なUnixコマンドの出力を、[Zod](https://zod.dev)で実行時検証しながら型安全にパースするライブラリです。
+
+**npm:** https://www.npmjs.com/package/nixparse
 
 [English README](./README.md)
 

@@ -1,6 +1,10 @@
 # nixparse
 
+[![npm version](https://img.shields.io/npm/v/nixparse.svg)](https://www.npmjs.com/package/nixparse)
+
 Type-safe parsers for classic Unix command output — `ps`, `df`, `du`, `free`, `lsof`, `mount`, `who`, `uptime`, `ip`, `ss` — validated at runtime with [Zod](https://zod.dev).
+
+**npm:** https://www.npmjs.com/package/nixparse
 
 [日本語版 README はこちら](./README.ja.md)
 

@@ -16,6 +16,14 @@
   "files": [
     "dist"
   ],
+  "homepage": "https://github.com/Lapius7/nixparse#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lapius7/nixparse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lapius7/nixparse/issues"
+  },
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
