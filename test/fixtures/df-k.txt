@@ -1,0 +1,27 @@
+Filesystem      1K-blocks      Used Available Use% Mounted on
+none              2004796         0   2004796   0% /usr/lib/modules/6.18.33.1-microsoft-standard-WSL2
+none              2004796         4   2004792   1% /mnt/wsl
+drivers         973734908 831451256 142283652  86% /usr/lib/wsl/drivers
+/dev/sdd       1055762868  68095716 933963680   7% /
+none              2004796       152   2004644   1% /mnt/wslg
+none              2004796         0   2004796   0% /usr/lib/wsl/lib
+rootfs            1999040      2772   1996268   1% /init
+none              2004796       968   2003828   1% /run
+none              2004796         0   2004796   0% /run/lock
+none              2004796         0   2004796   0% /run/shm
+none              2004796      1244   2003552   1% /mnt/wslg/versions.txt
+none              2004796      1244   2003552   1% /mnt/wslg/doc
+C:\             973734908 831451256 142283652  86% /mnt/c
+snapfuse              128       128         0 100% /snap/bare/5
+snapfuse            75776     75776         0 100% /snap/core22/2411
+snapfuse            65408     65408         0 100% /snap/core20/2866
+snapfuse            68480     68480         0 100% /snap/core24/1643
+snapfuse           247680    247680         0 100% /snap/discord/292
+snapfuse           248064    248064         0 100% /snap/discord/293
+snapfuse           544128    544128         0 100% /snap/gnome-42-2204/247
+snapfuse            93952     93952         0 100% /snap/gtk-common-themes/1535
+snapfuse           620672    620672         0 100% /snap/gnome-46-2404/153
+snapfuse           411648    411648         0 100% /snap/mesa-2404/1781
+snapfuse             4352      4352         0 100% /snap/micro/4304
+snapfuse            50560     50560         0 100% /snap/snapd/26865
+tmpfs              400956       112    400844   1% /run/user/1000

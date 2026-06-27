@@ -1,0 +1,80 @@
+p1
+csystemd
+u0
+fcwd
+tunknown
+n/proc/1/cwd (readlink: Permission denied)
+frtd
+tunknown
+n/proc/1/root (readlink: Permission denied)
+ftxt
+tunknown
+n/proc/1/exe (readlink: Permission denied)
+fNOFD
+n/proc/1/fd (opendir: Permission denied)
+p6
+cinit
+u0
+fcwd
+tunknown
+n/proc/6/cwd (readlink: Permission denied)
+frtd
+tunknown
+n/proc/6/root (readlink: Permission denied)
+ftxt
+tunknown
+n/proc/6/exe (readlink: Permission denied)
+fNOFD
+n/proc/6/fd (opendir: Permission denied)
+p6
+cinit
+u0
+fcwd
+tunknown
+n/proc/6/task/7/cwd (readlink: Permission denied)
+frtd
+tunknown
+n/proc/6/task/7/root (readlink: Permission denied)
+ftxt
+tunknown
+n/proc/6/task/7/exe (readlink: Permission denied)
+fNOFD
+n/proc/6/task/7/fd (opendir: Permission denied)
+p59
+csystemd-journal
+u0
+fcwd
+tunknown
+n/proc/59/cwd (readlink: Permission denied)
+frtd
+tunknown
+n/proc/59/root (readlink: Permission denied)
+ftxt
+tunknown
+n/proc/59/exe (readlink: Permission denied)
+fNOFD
+n/proc/59/fd (opendir: Permission denied)
+p108
+csystemd-udevd
+u0
+fcwd
+tunknown
+n/proc/108/cwd (readlink: Permission denied)
+frtd
+tunknown
+n/proc/108/root (readlink: Permission denied)
+ftxt
+tunknown
+n/proc/108/exe (readlink: Permission denied)
+fNOFD
+n/proc/108/fd (opendir: Permission denied)
+p122
+csnapfuse
+u0
+fcwd
+tunknown
+n/proc/122/cwd (readlink: Permission denied)
+frtd
+tunknown
+n/proc/122/root (readlink: Permission denied)
+ftxt

@@ -1,0 +1,19 @@
+State  Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess                                     
+LISTEN 0      4096    127.0.0.53%lo:53         0.0.0.0:*                                               
+LISTEN 0      511         127.0.0.1:31059      0.0.0.0:*    users:(("node",pid=21070,fd=29))           
+LISTEN 0      4096       127.0.0.54:53         0.0.0.0:*                                               
+LISTEN 0      4096        127.0.0.1:8384       0.0.0.0:*    users:(("syncthing",pid=599,fd=12))        
+LISTEN 0      511         127.0.0.1:33575      0.0.0.0:*    users:(("node",pid=21070,fd=43))           
+LISTEN 0      511         127.0.0.1:33463      0.0.0.0:*    users:(("node",pid=20245,fd=22))           
+LISTEN 0      2048        127.0.0.1:8787       0.0.0.0:*    users:(("headroom",pid=479,fd=8))          
+LISTEN 0      4096        127.0.0.1:631        0.0.0.0:*                                               
+LISTEN 0      4096        127.0.0.1:38219      0.0.0.0:*    users:(("language_server",pid=21681,fd=32))
+LISTEN 0      4096        127.0.0.1:44193      0.0.0.0:*                                               
+LISTEN 0      4096        127.0.0.1:11434      0.0.0.0:*                                               
+LISTEN 0      1000   10.255.255.254:53         0.0.0.0:*                                               
+LISTEN 0      4096        127.0.0.1:36441      0.0.0.0:*    users:(("language_server",pid=21681,fd=10))
+LISTEN 0      4096        127.0.0.1:44671      0.0.0.0:*    users:(("language_server",pid=21681,fd=9)) 
+LISTEN 0      4096            [::1]:631           [::]:*                                               
+LISTEN 0      4096                *:22000            *:*    users:(("syncthing",pid=599,fd=23))        
+LISTEN 0      2                   *:3389             *:*                                               
+LISTEN 0      2               [::1]:3350          [::]:*                                               

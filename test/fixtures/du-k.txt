@@ -1,0 +1,3 @@
+40	/home/lap7/projects/.agents/skills/make-interfaces-feel-better
+44	/home/lap7/projects/.agents/skills
+48	/home/lap7/projects/.agents
