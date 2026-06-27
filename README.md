@@ -19,6 +19,7 @@ Most of these commands have no `--json` flag (unlike `docker` or `kubectl`), so 
 
 - [Install](#install)
 - [Quick start](#quick-start)
+- [Before / after](#before--after)
 - [Core concepts](#core-concepts)
 - [API reference](#api-reference)
   - [`parse(name, raw)`](#parsename-raw)
@@ -60,6 +61,59 @@ console.log(processes[0].pid, processes[0].command);
 ```
 
 That's it — `run()` executes `ps aux` under the hood, parses stdout, validates it against a Zod schema, and hands back a fully-typed array.
+
+## Before / after
+
+**Without nixparse**, `ps aux` gives you a wall of text:
+
+```
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1  22384  6892 ?        Ss   01:31   0:01 /sbin/init
+root         599  0.1  0.5 712104 21000 ?        Sl   01:31   0:42 syncthing -no-browser
+node       21070  0.3  1.2 987344 49200 ?        Sl   01:42   1:10 node server.js
+```
+
+To use that in JavaScript, you'd have to write your own column-splitting/regex logic — and redo it for every command, since `df`, `free`, `mount`, etc. all use different layouts:
+
+```js
+const lines = stdout.trim().split("\n").slice(1);
+const procs = lines.map((line) => {
+  const parts = line.trim().split(/\s+/);
+  return {
+    user: parts[0],
+    pid: Number(parts[1]),
+    cpu: Number(parts[2]),
+    // ...and so on, with no guarantee any of this matches what you assumed
+  };
+});
+```
+
+**With nixparse**, the same data arrives as a typed, validated array — no parsing code, and a thrown error instead of silent garbage if the format doesn't match:
+
+```ts
+import { run, type ProcessInfo } from "nixparse";
+
+const procs = await run<ProcessInfo[]>("ps");
+console.log(procs[0]);
+```
+
+```js
+{
+  user: 'root',
+  pid: 1,
+  cpu: 0,
+  mem: 0.1,
+  vsz: 22384,
+  rss: 6892,
+  tty: '?',
+  stat: 'Ss',
+  start: '01:31',
+  time: '0:01',
+  command: '/sbin/init'
+}
+```
+
+`pid`/`cpu`/`mem`/`vsz`/`rss` are already numbers (not strings), every field is type-checked by your editor, and the exact same pattern (`run("df")`, `run("free")`, `run("mount")`, ...) works across all 10 commands instead of learning a new text format each time.
 
 ## Core concepts
 

@@ -19,6 +19,7 @@
 
 - [インストール](#インストール)
 - [クイックスタート](#クイックスタート)
+- [Before / after(導入前と導入後の比較)](#before--after導入前と導入後の比較)
 - [基本概念](#基本概念)
 - [APIリファレンス](#apiリファレンス)
   - [`parse(name, raw)`](#parsename-raw)
@@ -60,6 +61,59 @@ console.log(processes[0].pid, processes[0].command);
 ```
 
 これだけです。`run()`は内部で`ps aux`を実行し、標準出力をパースし、Zodスキーマで検証してから、完全に型付けされた配列を返します。
+
+## Before / after(導入前と導入後の比較)
+
+**nixparseを使わない場合**、`ps aux`はこのような生テキストを返します。
+
+```
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1  22384  6892 ?        Ss   01:31   0:01 /sbin/init
+root         599  0.1  0.5 712104 21000 ?        Sl   01:31   0:42 syncthing -no-browser
+node       21070  0.3  1.2 987344 49200 ?        Sl   01:42   1:10 node server.js
+```
+
+これをJavaScriptで使うには、自分で列分割・正規表現のロジックを書く必要があります。しかも`df`, `free`, `mount`等はそれぞれ別のレイアウトなので、コマンドごとに毎回書き直すことになります。
+
+```js
+const lines = stdout.trim().split("\n").slice(1);
+const procs = lines.map((line) => {
+  const parts = line.trim().split(/\s+/);
+  return {
+    user: parts[0],
+    pid: Number(parts[1]),
+    cpu: Number(parts[2]),
+    // ...こうした処理を続ける必要があり、想定通りの形式かどうかの保証もない
+  };
+});
+```
+
+**nixparseを使う場合**、同じデータが型付けされた検証済みの配列として返ってきます。パース用コードを書く必要はなく、フォーマットが想定と異なる場合は黒魔術的に誤った値を返すのではなくエラーが投げられます。
+
+```ts
+import { run, type ProcessInfo } from "nixparse";
+
+const procs = await run<ProcessInfo[]>("ps");
+console.log(procs[0]);
+```
+
+```js
+{
+  user: 'root',
+  pid: 1,
+  cpu: 0,
+  mem: 0.1,
+  vsz: 22384,
+  rss: 6892,
+  tty: '?',
+  stat: 'Ss',
+  start: '01:31',
+  time: '0:01',
+  command: '/sbin/init'
+}
+```
+
+`pid`/`cpu`/`mem`/`vsz`/`rss`は最初から数値型(文字列ではない)で、各フィールドはエディタの型補完が効きます。そして同じパターン(`run("df")`, `run("free")`, `run("mount")`, ...)が10コマンド全てで共通して使えるので、コマンドごとに新しいテキストフォーマットを覚える必要がありません。
 
 ## 基本概念
 
