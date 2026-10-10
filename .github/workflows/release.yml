@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
@@ -23,8 +24,8 @@ jobs:
       - run: npm install -g npm@latest # OIDC での公開には npm 11.5.1 以降が必要
       - name: タグと package.json の版が一致するか確認
         run: test "${GITHUB_REF_NAME#v}" = "$(node -p 'require("./package.json").version')"
-      - run: npm ci
-      - run: npm run typecheck && npm test && npm run build
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run typecheck && pnpm test && pnpm run build
       - run: npm publish --access public
       - name: GitHub Release を作成（既にあれば飛ばす）
         run: gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 || gh release create "$GITHUB_REF_NAME" --generate-notes

@@ -524,11 +524,11 @@ const summary = {
 ```sh
 git clone <このリポジトリ>
 cd nixparse
-npm install
-npm run build       # tsup → dist/ (ESM + CJS + .d.ts)
-npm run test        # vitest。test/fixtures/ 内のfixtureに対して実行
-npm run test:watch  # ウォッチモード
-npm run typecheck   # tsc --noEmit
+pnpm install
+pnpm run build       # tsup → dist/ (ESM + CJS + .d.ts)
+pnpm run test        # vitest。test/fixtures/ 内のfixtureに対して実行
+pnpm run test:watch  # ウォッチモード
+pnpm run typecheck   # tsc --noEmit
 ```
 
 `test/fixtures/*.txt`内のfixtureは、各コマンドを実際に実行して取得した本物の出力です。新しいコマンド対応を追加したりエッジケースを修正する際は、手書きで作るのではなく実際にサンプルを取得してください(`<command> > test/fixtures/<name>.txt`)。テストが実際のツールの挙動を反映するようにするためです。

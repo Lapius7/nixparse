@@ -524,11 +524,11 @@ const summary = {
 ```sh
 git clone <this repo>
 cd nixparse
-npm install
-npm run build       # tsup → dist/ (ESM + CJS + .d.ts)
-npm run test        # vitest, runs against fixtures in test/fixtures/
-npm run test:watch  # watch mode
-npm run typecheck   # tsc --noEmit
+pnpm install
+pnpm run build       # tsup → dist/ (ESM + CJS + .d.ts)
+pnpm run test        # vitest, runs against fixtures in test/fixtures/
+pnpm run test:watch  # watch mode
+pnpm run typecheck   # tsc --noEmit
 ```
 
 Fixtures in `test/fixtures/*.txt` are real captured output from each command. When adding support for a new command or fixing an edge case, capture a real sample (`<command> > test/fixtures/<name>.txt`) rather than hand-writing one, so tests reflect actual tool behavior.
