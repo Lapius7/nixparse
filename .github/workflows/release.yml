@@ -19,7 +19,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 26
           registry-url: https://registry.npmjs.org
       - run: npm install -g npm@latest # OIDC での公開には npm 11.5.1 以降が必要
       - name: タグと package.json の版が一致するか確認
