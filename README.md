@@ -1,9 +1,5 @@
 <div align="center">
 
-<p align="center">
-  <img src="docs/images/banner.png" alt="nixparse" width="100%">
-</p>
-
 <p align="center"><b>English</b> | <a href="README.ja.md">日本語</a></p>
 
 <h1 align="center">nixparse</h1>
