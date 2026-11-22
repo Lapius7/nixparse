@@ -1,12 +1,37 @@
-# nixparse
+<div align="center">
 
-[![npm version](https://img.shields.io/npm/v/nixparse.svg)](https://www.npmjs.com/package/nixparse)
+<p align="center">
+  <img src="docs/images/banner.png" alt="nixparse" width="100%">
+</p>
 
-Type-safe parsers for classic Unix command output — `ps`, `df`, `du`, `free`, `lsof`, `mount`, `who`, `uptime`, `ip`, `ss` — validated at runtime with [Zod](https://zod.dev).
+<p align="center"><b>English</b> | <a href="README.ja.md">日本語</a></p>
 
-**npm:** https://www.npmjs.com/package/nixparse
+<h1 align="center">nixparse</h1>
 
-[日本語版 README はこちら](./README.ja.md)
+<h3 align="center">Type-safe parsers for Unix command output.</h3>
+
+<p align="center">Parses <code>ps</code>, <code>df</code>, <code>du</code>, <code>free</code>, <code>lsof</code>, <code>mount</code>, <code>who</code>, <code>uptime</code>, <code>ip</code>, and <code>ss</code> into typed objects, validated at runtime with <a href="https://zod.dev">Zod</a>.</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/nixparse"><img alt="npm" src="https://img.shields.io/npm/v/nixparse?style=flat-square&color=cb3837&logo=npm"></a>
+  <a href="https://github.com/Lapius7/nixparse/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/Lapius7/nixparse/ci.yml?branch=main&label=CI&style=flat-square&logo=githubactions&logoColor=white"></a>
+  <a href="https://zod.dev"><img alt="Zod" src="https://img.shields.io/badge/validated%20with-Zod-3068b7?style=flat-square&logo=zod&logoColor=white"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/Lapius7/nixparse?style=flat-square&color=97ca00"></a>
+  <a href="https://github.com/Lapius7/nixparse/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/Lapius7/nixparse?style=flat-square&color=e3b341&logo=github"></a>
+  <a href="https://github.com/Lapius7/nixparse/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/Lapius7/nixparse?style=flat-square&color=3b82f6"></a>
+</p>
+
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#api-reference">API</a> ·
+  <a href="#supported-commands-full-field-reference">Commands</a> ·
+  <a href="#scope-and-limitations">Limitations</a>
+</p>
+
+</div>
+
+---
 
 Most of these commands have no `--json` flag (unlike `docker` or `kubectl`), so their output has historically been scraped with one-off regexes. `nixparse` gives you a single, typed, pluggable interface for all of them.
 

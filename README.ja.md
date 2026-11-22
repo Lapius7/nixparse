@@ -1,12 +1,37 @@
-# nixparse
+<div align="center">
 
-[![npm version](https://img.shields.io/npm/v/nixparse.svg)](https://www.npmjs.com/package/nixparse)
+<p align="center">
+  <img src="docs/images/banner.png" alt="nixparse" width="100%">
+</p>
 
-`ps`, `df`, `du`, `free`, `lsof`, `mount`, `who`, `uptime`, `ip`, `ss` といった古典的なUnixコマンドの出力を、[Zod](https://zod.dev)で実行時検証しながら型安全にパースするライブラリです。
+<p align="center"><a href="README.md">English</a> | <b>日本語</b></p>
 
-**npm:** https://www.npmjs.com/package/nixparse
+<h1 align="center">nixparse</h1>
 
-[English README](./README.md)
+<h3 align="center">Unix コマンドの出力を、型付きで安全にパースする。</h3>
+
+<p align="center"><code>ps</code>、<code>df</code>、<code>du</code>、<code>free</code>、<code>lsof</code>、<code>mount</code>、<code>who</code>、<code>uptime</code>、<code>ip</code>、<code>ss</code> の出力を型付きのオブジェクトに変換し、<a href="https://zod.dev">Zod</a> で実行時に検証します。</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/nixparse"><img alt="npm" src="https://img.shields.io/npm/v/nixparse?style=flat-square&color=cb3837&logo=npm"></a>
+  <a href="https://github.com/Lapius7/nixparse/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/Lapius7/nixparse/ci.yml?branch=main&label=CI&style=flat-square&logo=githubactions&logoColor=white"></a>
+  <a href="https://zod.dev"><img alt="Zod" src="https://img.shields.io/badge/validated%20with-Zod-3068b7?style=flat-square&logo=zod&logoColor=white"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/Lapius7/nixparse?style=flat-square&color=97ca00"></a>
+  <a href="https://github.com/Lapius7/nixparse/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/Lapius7/nixparse?style=flat-square&color=e3b341&logo=github"></a>
+  <a href="https://github.com/Lapius7/nixparse/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/Lapius7/nixparse?style=flat-square&color=3b82f6"></a>
+</p>
+
+<p align="center">
+  <a href="#インストール">インストール</a> ·
+  <a href="#クイックスタート">クイックスタート</a> ·
+  <a href="#apiリファレンス">API</a> ·
+  <a href="#対応コマンド一覧全フィールド解説">コマンド</a> ·
+  <a href="#対応範囲制限事項">制限</a>
+</p>
+
+</div>
+
+---
 
 これらのコマンドの多くは`docker`や`kubectl`のような`--json`オプションを持たず、出力は長らく場当たり的な正規表現でスクレイピングされてきました。`nixparse`はそれらすべてに対して、単一の・型付けされた・拡張可能なインターフェースを提供します。
 
